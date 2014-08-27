@@ -5,5 +5,19 @@
             <p>{{vkUser.first_name}} {{vkUser.last_name}}</p>
             <img data-ng-src="{{vkUser.photo_big}}">
         </div>
+        <table class="table table-bordered">
+            <thead>
+                <th>Day of week</th>
+                <th>Date and Time</th>
+                <th>Time</th>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="onlineDate in vkUser.onlineDates">
+                    <td>{{getDayOfWeek(onlineDate.start)}}</td>
+                    <td>{{toDateTime(onlineDate.start)}} - {{toDateTime(onlineDate.end)}}</td>
+                    <td>{{getTime(onlineDate.start, onlineDate.end)}}</td>
+                </tr>
+            </tbody>
+        </table>
     </section>
 </section>

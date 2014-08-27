@@ -14,7 +14,7 @@ exports.render = function(req, res) {
     });
 };
 //update online statuses
-setTimeout(function(){
+setInterval(function(){
     VkUser.find().exec(function(err, users){
         if (users.length>0){
             var uids = [];
@@ -37,26 +37,26 @@ setTimeout(function(){
                                     if (!onlineDate.end)
                                         onlineDate.end = new Date();
                                 }else{
-                                    if (onlineDate.end)
+                                    if (onlineDate.end){
                                         onlineDate = new OnlineDates({start: new Date(), uid: vkuser.uid})
+                                    }
                                 }
                             }else{
                                 onlineDate = new OnlineDates({start: new Date(), uid: vkuser.uid})
                             }
                             onlineDate.save(function(err){
-
                                 cb()
                             });
                         });
                     });
                 });
                 async.series(f, function(){
-                    console.log('updated')
+//                    console.log('updated')
                 })
             });
         }
     })
-},5000);
+},10000);
 
 exports.vkuser = function(req, res, next, id) {
     VkUser.load(id, function(err, vkuser) {
@@ -76,7 +76,14 @@ exports.show = function(req,res){
     });
 
     vk.on('done:getProfiles', function(vkUser) {
-        res.jsonp(vkUser)
+        if (!vkUser.error){
+            OnlineDates.find({uid: req.params.vkuserId}).exec(function(err,onlineDates){
+                vkUser.response[0].onlineDates = onlineDates;
+                res.jsonp(vkUser);
+            });
+        }else
+            res.jsonp(vkUser);
+
     });
 };
 
