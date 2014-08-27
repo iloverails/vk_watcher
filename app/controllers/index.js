@@ -59,7 +59,7 @@ exports.create = function(req,res){
     var user = new VkUser(req.body);
     user.user = req.user._id;
     user.save(function(err){
-        res.send(200)
+        res.jsonp(user)
     });
 };
 

@@ -2,10 +2,9 @@
 
 angular.module('mean.system').controller('IndexController', ['$scope', 'Global', '$location', 'VkUser', '$routeParams', function ($scope, Global, $location, VkUser, $routeParams) {
     $scope.global = Global;
-
+    $scope.vkUsers = [];
     $scope.find = function(){
         VkUser.query(function(vkUsers) {
-            console.log(vkUsers)
             $scope.vkUsers = vkUsers;
         });
     }
@@ -29,8 +28,15 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
 
     $scope.addProfile = function(foundUser){
         var vkUser = new VkUser(foundUser);
-        vkUser.$save(function(response) {
-            console.log(response)
+        vkUser.$save(function(user) {
+            VkUser.get({
+                vkuserId: user.uid
+            }, function(vkuser) {
+                if (!vkuser.error){
+                    $scope.vkUsers.push(vkuser.response[0]);
+                    $scope.foundUser = '';
+                }
+            });
         });
     };
 
