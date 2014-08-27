@@ -1,25 +1,27 @@
-<section data-ng-controller="IndexController" data-ng-init="find()">
-	<h1>Vk watcher</h1>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <input class="form-control" type="text" data-ng-model="newUid">
-            <button class="btn btn-primary" data-ng-click="findProfile(newUid)">Add new Profile +</button>
-            <div class="row" ng-if="foundUser">
-                <button class="btn btn-success" data-ng-click="addProfile(foundUser)">Add for watching</button>
-                <br>
-                <img data-ng-src="{{foundUser.photo_big}}">
-                <br>
-                <a>{{foundUser.first_name}} {{foundUser.last_name}}</a>
+<section data-ng-controller="IndexController">
+    <section ng-if="global.user" data-ng-init="find()">
+        <h1>Vk watcher</h1>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <input class="form-control" type="text" data-ng-model="newUid">
+                <button class="btn btn-primary" data-ng-click="findProfile(newUid)">Add new Profile +</button>
+                <div class="row" ng-if="foundUser">
+                    <button class="btn btn-success" data-ng-click="addProfile(foundUser)">Add for watching</button>
+                    <br>
+                    <img data-ng-src="{{foundUser.photo_big}}">
+                    <br>
+                    <a>{{foundUser.first_name}} {{foundUser.last_name}}</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                Added Profiles
+                <div data-ng-repeat="vkuser in vkUsers">
+                    <img style="cursor: pointer;" data-ng-click="openProfile(vkuser.uid)" data-ng-src="{{vkuser.photo_medium}}">
+                    <br>
+                    <a href="/#/profile/{{vkuser.uid}}">{{vkuser.first_name}} {{vkuser.last_name}}</a>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            Added Profiles
-            <div data-ng-repeat="vkuser in vkUsers">
-                <img style="cursor: pointer;" data-ng-click="openProfile(vkuser.uid)" data-ng-src="{{vkuser.photo_medium}}">
-                <br>
-                <a href="/#/profile/{{vkuser.uid}}">{{vkuser.first_name}} {{vkuser.last_name}}</a>
-            </div>
-        </div>
-    </div>
+    </section>
 </section>

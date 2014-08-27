@@ -11,16 +11,19 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 var OnlineDatesSchema = new Schema({
-    vkusers: {
-        type: Schema.ObjectId,
-        ref: 'VkUser'
+    uid: {
+        type: String
     },
-    mobile: [{
+    created_at:{
+        type: Date,
+        default: Date.now
+    },
+    start: {
         type: Date
-    }],
-    desktop: [{
+    },
+    end: {
         type: Date
-    }]
+    }
 
 });
 

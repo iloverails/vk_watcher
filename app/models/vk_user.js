@@ -10,7 +10,7 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 var VkUserSchema = new Schema({
-    created: {
+    created_at: {
         type: Date,
         default: Date.now
     },
@@ -22,12 +22,11 @@ var VkUserSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
-    mobileOnline: [{
-        type: Date
-    }],
-    desktopOnline: [{
-        type: Date
+    onlineDates: [{
+        type: Schema.ObjectId,
+        ref: 'OnlineDates'
     }]
+
 });
 
 mongoose.model('VkUser', VkUserSchema);

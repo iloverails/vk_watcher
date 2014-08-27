@@ -5,33 +5,58 @@ var mongoose = require('mongoose'),
     _ = require('lodash'),
     async = require('async'),
     config = require('../../config/config'),
-    VkUser = mongoose.model('VkUser');
+    VkUser = mongoose.model('VkUser'),
+    OnlineDates = mongoose.model('OnlineDates');
 
 exports.render = function(req, res) {
     res.render('index', {
         user: req.user ? JSON.stringify(req.user) : 'null'
     });
 };
+//update online statuses
+setTimeout(function(){
+    VkUser.find().exec(function(err, users){
+        if (users.length>0){
+            var uids = [];
+            _.each(users, function(user){
+                uids.push(user.uid);
+            });
+            var vk = new VK(config.vk);
+            vk.request('getProfiles', {
+                'uids' : uids,
+                'fields': 'has_mobile,online'
+            });
 
-//setTimeout(function(){
-//    VkUser.find().exec(function(err, users){
-//        var uids = [];
-//        _.each(users, function(user){
-//            uids.push(user.uid);
-//        });
-//
-//        var vk = new VK(config.vk);
-//        vk.request('getProfiles', {
-//            'uids' : uids,
-//            'fields': 'has_mobile,online'
-//        });
-//
-//        vk.on('done:getProfiles', function(vkUsers) {
-//
-//        });
-//
-//    })
-//},1000);
+            vk.on('done:getProfiles', function(vkUsers) {
+                var f = [];
+                _.each(vkUsers.response, function(vkuser){
+                    f.push(function(cb){
+                        OnlineDates.findOne({}, {}, { sort: { 'created_at' : -1 } }).exec(function(err, onlineDate){
+                            if (onlineDate){
+                                if (vkuser.online==0){
+                                    if (!onlineDate.end)
+                                        onlineDate.end = new Date();
+                                }else{
+                                    if (onlineDate.end)
+                                        onlineDate = new OnlineDates({start: new Date(), uid: vkuser.uid})
+                                }
+                            }else{
+                                onlineDate = new OnlineDates({start: new Date(), uid: vkuser.uid})
+                            }
+                            onlineDate.save(function(err){
+
+                                cb()
+                            });
+                        });
+                    });
+                });
+                async.series(f, function(){
+                    console.log('updated')
+                })
+            });
+        }
+    })
+},5000);
 
 exports.vkuser = function(req, res, next, id) {
     VkUser.load(id, function(err, vkuser) {

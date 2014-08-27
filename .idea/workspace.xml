@@ -35,16 +35,16 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="0" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="1365">
+            <state line="15" column="16" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1740">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="41" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.5619147" vertical-offset="0" max-vertical-offset="961">
+            <state line="4" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
               <folding />
             </state>
           </provider>
@@ -53,18 +53,18 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="72" selection-start="903" selection-end="914" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="450">
+            <state line="1" column="54" selection-start="101" selection-end="101" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="480">
               <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#section#0;n#section#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="profile.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/views/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="45" selection-start="151" selection-end="151" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
+            <state line="3" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.048025616" vertical-offset="0" max-vertical-offset="937">
               <folding />
             </state>
           </provider>
@@ -82,19 +82,19 @@
       <list>
         <option value="$PROJECT_DIR$/public/js/controllers/header.js" />
         <option value="$PROJECT_DIR$/node_modules/vksdk/vksdk.js" />
-        <option value="$PROJECT_DIR$/app/models/online_dates.js" />
         <option value="$PROJECT_DIR$/public/js/services/vk_users.js" />
         <option value="$PROJECT_DIR$/app/models/user.js" />
         <option value="$PROJECT_DIR$/public/js/services/vk_user.js" />
-        <option value="$PROJECT_DIR$/public/views/profile.html" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/config/env/development.js" />
-        <option value="$PROJECT_DIR$/app/models/vk_user.js" />
         <option value="$PROJECT_DIR$/public/js/config.js" />
         <option value="$PROJECT_DIR$/app/routes/index.js" />
-        <option value="$PROJECT_DIR$/public/views/index.html" />
+        <option value="$PROJECT_DIR$/app/models/vk_user.js" />
+        <option value="$PROJECT_DIR$/app/models/online_dates.js" />
         <option value="$PROJECT_DIR$/app/controllers/index.js" />
+        <option value="$PROJECT_DIR$/public/views/index.html" />
         <option value="$PROJECT_DIR$/public/js/controllers/index.js" />
+        <option value="$PROJECT_DIR$/public/views/profile.html" />
       </list>
     </option>
   </component>
@@ -484,20 +484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="20" selection-start="231" selection-end="231" vertical-scroll-proportion="0.21852237" vertical-offset="0" max-vertical-offset="1965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="45" selection-start="151" selection-end="151" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/services/vk_user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="44" selection-start="132" selection-end="132" vertical-scroll-proportion="0.031217482" vertical-offset="0" max-vertical-offset="961">
@@ -512,23 +498,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/online_dates.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="14" selection-start="189" selection-end="189" vertical-scroll-proportion="0.20291363" vertical-offset="0" max-vertical-offset="961">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/env/development.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="6" selection-start="239" selection-end="239" vertical-scroll-proportion="0.17169616" vertical-offset="0" max-vertical-offset="961">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/vk_user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="8" selection-start="308" selection-end="308" vertical-scroll-proportion="0.31217483" vertical-offset="0" max-vertical-offset="961">
           <folding />
         </state>
       </provider>
@@ -540,22 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="72" selection-start="903" selection-end="914" vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="450">
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#section#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="0" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.0" vertical-offset="404" max-vertical-offset="1365">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="315">
@@ -563,9 +519,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="20" selection-start="231" selection-end="231" vertical-scroll-proportion="0.21852237" vertical-offset="0" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/vk_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="14" selection-start="132" selection-end="132" vertical-scroll-proportion="0.14047867" vertical-offset="0" max-vertical-offset="961">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/online_dates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="207" selection-end="207" vertical-scroll-proportion="0.23413111" vertical-offset="0" max-vertical-offset="961">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="419" selection-end="419" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1740">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="54" selection-start="101" selection-end="101" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="480">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#2;n#div#0;n#section#0;n#section#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="41" selection-start="1188" selection-end="1188" vertical-scroll-proportion="0.5619147" vertical-offset="0" max-vertical-offset="961">
+        <state line="4" column="0" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="134" selection-end="134" vertical-scroll-proportion="0.048025616" vertical-offset="0" max-vertical-offset="937">
           <folding />
         </state>
       </provider>
