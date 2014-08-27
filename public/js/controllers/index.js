@@ -1,26 +1,30 @@
 'use strict';
 
-angular.module('mean.system').controller('IndexController', ['$scope', 'Global', '$http', 'VkUser', '$routeParams', function ($scope, Global, $http, VkUser, $routeParams) {
+angular.module('mean.system').controller('IndexController', ['$scope', 'Global', '$location', 'VkUser', '$routeParams', function ($scope, Global, $location, VkUser, $routeParams) {
     $scope.global = Global;
 
     $scope.find = function(){
         VkUser.query(function(vkUsers) {
+            console.log(vkUsers)
             $scope.vkUsers = vkUsers;
         });
     }
     $scope.findOne = function(){
         VkUser.get({
-            vkuserId: $routeParams.id
+            vkuserId: $routeParams.vkuserId
         }, function(vkuser) {
-            $scope.vkUser = vkuser;
+            if (!vkuser.error)
+                $scope.vkUser = vkuser.response[0];
         });
     }
 
     $scope.findProfile = function(uid){
-        $http.get('/find_vk_users/'+uid).success(function(res){
-            if (!res.error)
-                $scope.foundUser = res.response[0];
-        })
+        VkUser.get({
+            vkuserId: uid
+        }, function(vkuser) {
+            if (!vkuser.error)
+                $scope.foundUser = vkuser.response[0];
+        });
     };
 
     $scope.addProfile = function(foundUser){
@@ -29,4 +33,8 @@ angular.module('mean.system').controller('IndexController', ['$scope', 'Global',
             console.log(response)
         });
     };
+
+    $scope.openProfile = function(uid){
+        $location.path('/profile/'+uid)
+    }
 }]);

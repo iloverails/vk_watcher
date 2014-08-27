@@ -18,41 +18,16 @@ var VkUserSchema = new Schema({
         type: String,
         required: true
     },
-    first_name: {
-        type: String
-    },
-    last_name: {
-        type: String
-    },
-    sex: {
-        type: Number
-    },
-    nickname: {
-        type: String
-    },
-    screen_name: {
-        type: String
-    },
-    city: {
-        type: Number
-    },
-    photo: {
-        type: String
-    },
-    photo_medium: {
-        type: String
-    },
-    photo_big: {
-        type: String
-    },
-    users: {
+    user: {
         type: Schema.ObjectId,
         ref: 'User'
     },
-    online_dates:{
-        type: Schema.ObjectId,
-        ref: 'OnlineDates'
-    }
+    mobileOnline: [{
+        type: Date
+    }],
+    desktopOnline: [{
+        type: Date
+    }]
 });
 
 mongoose.model('VkUser', VkUserSchema);

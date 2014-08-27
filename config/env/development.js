@@ -5,6 +5,11 @@ module.exports = {
     app: {
         name: "vk_watcher"
     },
+    vk:{
+        'appID'     : 4525228,
+        'appSecret' : 'S34YxjPWxxkTFYsIMo0i',
+        'mode'      : 'sig'
+    },
     facebook: {
         clientID: 'APP_ID',
         clientSecret: 'APP_SECRET',

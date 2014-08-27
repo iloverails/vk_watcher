@@ -2,6 +2,9 @@
 
 var VK = require('vksdk');
 var mongoose = require('mongoose'),
+    _ = require('lodash'),
+    async = require('async'),
+    config = require('../../config/config'),
     VkUser = mongoose.model('VkUser');
 
 exports.render = function(req, res) {
@@ -10,21 +13,25 @@ exports.render = function(req, res) {
     });
 };
 
-exports.find_vk_user = function(req,res){
-    var vk = new VK({
-        'appID'     : 4525228,
-        'appSecret' : 'S34YxjPWxxkTFYsIMo0i',
-        'mode'      : 'sig'
-    });
-    vk.request('getProfiles', {
-        'uids' : req.params.uid,
-        'fields': 'first_name,last_name,nickname,screen_name,sex,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters'
-    });
-
-    vk.on('done:getProfiles', function(vkUser) {
-        res.jsonp(vkUser)
-    });
-};
+//setTimeout(function(){
+//    VkUser.find().exec(function(err, users){
+//        var uids = [];
+//        _.each(users, function(user){
+//            uids.push(user.uid);
+//        });
+//
+//        var vk = new VK(config.vk);
+//        vk.request('getProfiles', {
+//            'uids' : uids,
+//            'fields': 'has_mobile,online'
+//        });
+//
+//        vk.on('done:getProfiles', function(vkUsers) {
+//
+//        });
+//
+//    })
+//},1000);
 
 exports.vkuser = function(req, res, next, id) {
     VkUser.load(id, function(err, vkuser) {
@@ -37,9 +44,15 @@ exports.vkuser = function(req, res, next, id) {
 
 
 exports.show = function(req,res){
-    VkUser.findOne({_id: req.params.vkuserId}).exec(function(err,user){
-        res.jsonp(user);
-    })
+    var vk = new VK(config.vk);
+    vk.request('getProfiles', {
+        'uids' : req.params.vkuserId,
+        'fields': 'first_name,last_name,nickname,screen_name,sex,city,country,timezone,photo,photo_medium,photo_big,has_mobile,rate,contacts,education,online,counters'
+    });
+
+    vk.on('done:getProfiles', function(vkUser) {
+        res.jsonp(vkUser)
+    });
 };
 
 exports.create = function(req,res){
@@ -51,7 +64,23 @@ exports.create = function(req,res){
 };
 
 exports.all = function(req,res){
-    VkUser.find().exec(function(err, users){
-        res.jsonp(users)
+    VkUser.find({user: req.user._id}).exec(function(err, users){
+        if (users.length>0){
+            var uids = [];
+            _.each(users, function(user){
+                uids.push(user.uid);
+            });
+            var vk = new VK(config.vk);
+            vk.request('getProfiles', {
+                'uids' : uids,
+                'fields': 'has_mobile,online,photo,photo_big,photo_medium'
+            });
+            vk.on('done:getProfiles', function(vkUsers) {
+                res.jsonp(vkUsers.response)
+            });
+
+        }else{
+            res.jsonp([])
+        }
     });
 };

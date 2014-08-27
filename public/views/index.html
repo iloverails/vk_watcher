@@ -18,7 +18,7 @@
             <div data-ng-repeat="vkuser in vkUsers">
                 <img style="cursor: pointer;" data-ng-click="openProfile(vkuser.uid)" data-ng-src="{{vkuser.photo_medium}}">
                 <br>
-                <a href="/#/profile/{{vkuser._id}}">{{vkuser.first_name}} {{vkuser.last_name}}</a>
+                <a href="/#/profile/{{vkuser.uid}}">{{vkuser.first_name}} {{vkuser.last_name}}</a>
             </div>
         </div>
     </div>
